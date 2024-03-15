@@ -21,7 +21,7 @@ Questions to answer for stakeholders:
 information about daily activity, steps, and heart rate that can be used to explore users’ habits
 
 ### Dataset Credibility and Observations
-Data was stored, identified organization, data format, and then sorted and filtered using Google Sheets. Limited dataset includes 18 CSV files. Each file contains different quantitative data from 30 users. It is a small sample and there was no demographic information provided, so we could be facing a sampling bias. Therefore, the sample might not be representative of the population as a whole. Also, dataset is not current and there are only 2 months of data available.
+Data was stored, identified organization, data format, and then sorted and filtered using Google Sheets. Limited dataset includes 18 CSV files. Each file contains different quantitative data from 33 users. It is a small sample and there was no demographic information provided, so we could be facing a sampling bias. Therefore, the sample might not be representative of the population as a whole. Also, dataset is not current and there are only 2 months of data available.
 
 ## Process Phase
 I will be uploading the CSV files that are useful in BigQuery and using cleaning techniques in SQL due to the size of the data. 
