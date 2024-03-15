@@ -24,8 +24,21 @@ information about daily activity, steps, and heart rate that can be used to expl
 Data was stored, identified organization, data format, and then sorted and filtered using Google Sheets. Limited dataset includes 18 CSV files. Each file contains different quantitative data from 30 users. It is a small sample and there was no demographic information provided, so we could be facing a sampling bias. Therefore, the sample might not be representative of the population as a whole. Also, dataset is not current and there are only 2 months of data available.
 
 ## Process Phase
-I will be uploading the CSV files that are useful in BigQuery and using cleaning techniques in SQL due to the size of the data. I will be focusing in the folloging datasets:
-- Daily_activity
+I will be uploading the CSV files that are useful in BigQuery and using cleaning techniques in SQL due to the size of the data. 
+
+After looking into the datasets discovered that Heart Rate has data of 7 users, and Weight has data of 8 users; I won't be considering those datasets for my analysis due to having a very small sample. 
+
+I will be importing the following CSV files into BigQuery, all tracking different data of 33 users after thorough inspection:
+- daily_activity
+
+- Preview tables and checking the data type
+- verifying number of users 
+- checking for duplicates
+- removing duplicates
+- checking for missing data
+- rename columns
+- consistency date and time columns
+- merge daily_activity and daily_sleep to check for correlation
 
 
 
