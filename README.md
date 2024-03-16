@@ -40,10 +40,17 @@ I will be importing the CSV files to BigQuery that contain the following tables:
 - weight_log
 - heart_rate
 
-### Checking for number of distinct user id's on files
-```SQL
+### Checking for number of distinct user id's on datasets
 
+```SQL
+-- Counting number of distinct ids for all the 7 datasets
+-- Example of counting number of distinct ids for daily_activity
+SELECT
+  COUNT(Distinct id) AS ids_total
+  FROM
+    `tribal-logic-415822.fitbit_data.daily_activity`
 ```
+![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/20211613-87ca-4f44-b4a9-223d80163609)
 
 
 ### Checking for duplicates
@@ -62,9 +69,19 @@ GROUP BY
   total_sleep_minutes
 HAVING Count(*) > 1;
 ```
-I found 3 datetime duplicates in daily_sleep. I will proceed to clean them.
+**I found 3 duplicates in daily_sleep. I will proceed to clean them.**
 
 ![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/2cd25d40-20bc-4662-9366-ffb2d5e98be8)
+
+```SQL
+-- Counting number of distinct ids for all the 7 datasets
+-- Example of counting number of distinct ids for daily_activity
+SELECT
+  COUNT(Distinct id) AS ids_total
+  FROM
+    `tribal-logic-415822.fitbit_data.daily_activity`
+```
+![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/20211613-87ca-4f44-b4a9-223d80163609)
 
 ### Removing duplicates
 ```SQL
