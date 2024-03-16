@@ -27,10 +27,6 @@ Data was stored, identified organization, data format, and then sorted and filte
 ## Process Phase
 I will be uploading the CSV files that are useful in BigQuery and using cleaning techniques in SQL due to the size of the data, and also to showcase SQL skills. It could also be easily cleaned by fixing issues like formatting dates and removing duplicates through Google Sheets. There was an issue uploading hourly files and daily_sleep due to BigQuery due to data type, as it only accepts UTC standard type and time format was local time. Therefore, uploaded the files and edited the schema to STRING file type to be able to create the table.
 
-
-after thorough inspection: all tracking different data of 33 users after thorough inspection:
-After looking into the datasets discovered that Heart Rate has data of 7 users, and Weight has data of 8 users; I won't be considering those datasets for my analysis due to having a very small sample. 
-
 I will be importing the CSV files to BigQuery that contain the following tables:
 - daily_activity
 - daily_calories
@@ -40,17 +36,46 @@ I will be importing the CSV files to BigQuery that contain the following tables:
 - weight_log
 - heart_rate
 
-### Checking for number of distinct user id's on datasets
+### Checking for number of distinct user ids on datasets
+Counting number of distinct ids for all the 7 datasets.
+```SQL
+-- Example of counting number of distinct ids for daily_activity
+SELECT
+  COUNT(DISTINCT id) AS ids_total
+FROM
+  `tribal-logic-415822.fitbit_data.daily_activity`
+```
+![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/20211613-87ca-4f44-b4a9-223d80163609)
 
 ```SQL
--- Counting number of distinct ids for all the 7 datasets
--- Example of counting number of distinct ids for daily_activity
+-- Counting number of distinct ids in daily_sleep
 SELECT
   COUNT(Distinct id) AS ids_total
   FROM
-    `tribal-logic-415822.fitbit_data.daily_activity`
+    `tribal-logic-415822.fitbit_data.daily_sleep`
 ```
-![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/20211613-87ca-4f44-b4a9-223d80163609)
+![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/2c1f9804-1433-43a4-8142-e770f3fe7f44)
+
+
+```SQL
+-- Counting number of distinct ids in weight_log
+SELECT
+  COUNT(DISTINCT id) AS ids_total
+FROM
+  `tribal-logic-415822.fitbit_data.weight_log`
+```
+![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/bdf15630-a8a8-44da-bb5e-0cf7a6169f65)
+
+```SQL
+-- Counting number of distinct ids in heart_rate
+SELECT
+  COUNT(DISTINCT id) AS ids_total
+FROM
+  `tribal-logic-415822.fitbit_data.heart_rate`
+```
+![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/89810b0b-8e14-4faf-8187-e86dfb8007cb)
+
+After thorough inspection, **33** user ids were found for daily_activity, daily_calories, hourly_calories and hourly_steps. The dataset for daily_sleep has **24** user ids. Also, heart_rate has **7** user ids, and weight_log has **8** user ids; I won't be considering those datasets for my analysis due to having a very small sample. 
 
 
 ### Checking for duplicates
@@ -69,19 +94,9 @@ GROUP BY
   total_sleep_minutes
 HAVING Count(*) > 1;
 ```
-**I found 3 duplicates in daily_sleep. I will proceed to clean them.**
+I found **3** duplicates in daily_sleep and those will be cleaned. The rest of the datasets look good.
 
 ![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/2cd25d40-20bc-4662-9366-ffb2d5e98be8)
-
-```SQL
--- Counting number of distinct ids for all the 7 datasets
--- Example of counting number of distinct ids for daily_activity
-SELECT
-  COUNT(Distinct id) AS ids_total
-  FROM
-    `tribal-logic-415822.fitbit_data.daily_activity`
-```
-![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/20211613-87ca-4f44-b4a9-223d80163609)
 
 ### Removing duplicates
 ```SQL
