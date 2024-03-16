@@ -22,14 +22,55 @@ information about daily activity, steps, and heart rate that can be used to expl
 
 ### Dataset Credibility and Observations
 Data was stored, identified organization, data format, and then sorted and filtered using Google Sheets. Limited dataset includes 18 CSV files. Each file contains different quantitative data from 33 users. It is a small sample and there was no demographic information provided, so we could be facing a sampling bias. Therefore, the sample might not be representative of the population as a whole. Also, dataset is not current and there are only 2 months of data available.
+# Add about 30 is the minimal sample, and discuss confidence interval.
 
 ## Process Phase
-I will be uploading the CSV files that are useful in BigQuery and using cleaning techniques in SQL due to the size of the data. 
+I will be uploading the CSV files that are useful in BigQuery and using cleaning techniques in SQL due to the size of the data, and also to showcase SQL skills. It could also be easily cleaned by fixing issues like formatting dates and removing duplicates through Google Sheets. There was an issue uploading hourly files and daily_sleep due to BigQuery due to data type, as it only accepts UTC standard type and time format was local time. Therefore, uploaded the files and edited the schema to STRING file type to be able to create the table.
 
+
+after thorough inspection: all tracking different data of 33 users after thorough inspection:
 After looking into the datasets discovered that Heart Rate has data of 7 users, and Weight has data of 8 users; I won't be considering those datasets for my analysis due to having a very small sample. 
 
-I will be importing the following CSV files into BigQuery, all tracking different data of 33 users after thorough inspection:
+I will be importing the CSV files to BigQuery that contain the following tables:
 - daily_activity
+- daily_calories
+- daily_sleep
+- hourly_calories
+- hourly_steps
+- weight_log
+- heart_rate
+
+### Checking for number of distinct user id's on files
+```SQL
+
+```
+
+
+### Checking for duplicates
+```SQL
+-- Checking for duplicates in daily_sleep
+SELECT  
+  id, 
+  date AS date_time,
+  total_sleep_minutes,
+  total_bed_minutes,  
+FROM `tribal-logic-415822.fitbit_data.daily_sleep`
+GROUP BY
+  id,
+  date_time,
+  total_bed_minutes,
+  total_sleep_minutes
+HAVING Count(*) > 1;
+```
+I found 3 datetime duplicates in daily_sleep. I will proceed to clean them.
+
+![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/2cd25d40-20bc-4662-9366-ffb2d5e98be8)
+
+### Removing duplicates
+```SQL
+
+```
+
 
 - Preview tables and checking the data type
 - verifying number of users 
