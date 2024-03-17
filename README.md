@@ -17,15 +17,16 @@ Questions to answer for stakeholders:
 
 ## Prepare Phase
 ### Dataset Source & Information
-[FitBit Fitness Tracker Data](https://www.kaggle.com/datasets/arashnic/fitbit) (CC0: Public Domain, dataset made available through Mobius): This Kaggle data set contains personal fitness tracker from thirty fitbit users. Thirty eligible Fitbit users consented to the submission of personal tracker data, including minute-level output for physical activity, heart rate, and sleep monitoring. It includes
-information about daily activity, steps, and heart rate that can be used to explore users’ habits
+[FitBit Fitness Tracker Data](https://www.kaggle.com/datasets/arashnic/fitbit) (CC0: Public Domain, dataset made available through Mobius): This Kaggle data set contains personal fitness tracker from thirty fitbit users. Thirty eligible Fitbit users consented to the submission of personal tracker data, including minute-level output for physical activity, heart rate, and sleep monitoring. It includes information about daily activity, steps, and heart rate that can be used to explore users’ habits.
 
 ### Dataset Credibility and Observations
 Data was stored, identified organization, data format, and then sorted and filtered using Google Sheets. Limited dataset includes 18 CSV files. Each file contains different quantitative data from 33 users. It is a small sample and there was no demographic information provided, so we could be facing a sampling bias. Therefore, the sample might not be representative of the population as a whole. Also, dataset is not current and there are only 2 months of data available.
 # Add about 30 is the minimal sample, and discuss confidence interval.
 
 ## Process Phase
-I will be uploading the CSV files that are useful in BigQuery and using cleaning techniques in SQL due to the size of the data, and also to showcase SQL skills. It could also be easily cleaned by fixing issues like formatting dates and removing duplicates through Google Sheets. There was an issue uploading hourly files and daily_sleep due to BigQuery due to data type, as it only accepts UTC standard type and time format was local time. Therefore, uploaded the files and edited the schema to STRING file type to be able to create the table.
+I will be uploading the CSV files that are useful in BigQuery and using cleaning techniques in SQL. I will be checking for missing data, data type and format, duplicates, column names, and consistency with date and time columns. It could also be easily cleaned by fixing issues like formatting dates and removing duplicates, and filtering data with a pivot table through Google Sheets. I will continue searching for issues with the data throughout the entire analysis.
+
+There was an issue uploading hourly files and daily_sleep to BigQuery due to data type, as it only accepts UTC standard type and time format was local time. Therefore, uploaded the files and edited the schema to STRING type to be able to create the table. Fixed this issue later by using the SUBSTR function and removing the necessary part of the string.
 
 I will be importing the CSV files to BigQuery that contain the following tables:
 - daily_activity
@@ -94,14 +95,35 @@ GROUP BY
   total_sleep_minutes
 HAVING Count(*) > 1;
 ```
-I found **3** duplicates in daily_sleep and those will be cleaned. The rest of the datasets look good.
+I found **3** duplicates in daily_sleep and those will be removed from the query when I do the analysis. The rest of the datasets look good.
 
 ![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/2cd25d40-20bc-4662-9366-ffb2d5e98be8)
 
 ### Removing duplicates
+Removed duplicated rows from daily_sleep, used SUBSTR function to remove static timestamp 12:00:00 AM/PM from all dates; to be able to compare with daily_activity and daily_calories datasets. 
 ```SQL
-
+WITH fixed_date_sleep AS (  
+SELECT      
+DISTINCT 
+*,      
+SUBSTR(date, 1, 9) AS sleep_date,    
+FROM 
+  `tribal-logic-415822.fitbit_data.daily_sleep`)
+SELECT    
+  id,   
+  sleep_date,   
+  total_sleep_minutes,   
+  total_bed_minutes
+FROM 
+  fixed_date_sleep 
+ORDER BY   
+  id,
+  fixed_date_sleep.sleep_date
 ```
+## Analysis Phase
+Now that the data is clean and stored properly, I will organize, format and aggregate the data. I will also perform calculations in order to learn more about the data and identify relationships and trends.
+
+
 
 
 - Preview tables and checking the data type
@@ -111,9 +133,10 @@ I found **3** duplicates in daily_sleep and those will be cleaned. The rest of t
 - checking for missing data
 - rename columns
 - consistency date and time columns
+  
 - merge daily_activity and daily_sleep to check for correlation
 
-
+Exported the results from my previous queries and will import them together with the other clean data files into Tableau Public to create visualizations.
 
 
 
