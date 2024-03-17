@@ -26,7 +26,7 @@ Data was stored, identified organization, data format, and then sorted and filte
 ## Process Phase
 I will be uploading the CSV files that are useful in BigQuery and using cleaning techniques in SQL. I will be checking for missing data, data type and format, duplicates, column names, and consistency with date and time columns. It could also be easily cleaned by fixing issues like formatting dates and removing duplicates, and filtering data with a pivot table through Google Sheets. I will continue searching for issues with the data throughout the entire analysis.
 
-There was an issue uploading hourly files and daily_sleep to BigQuery due to data type, as it only accepts UTC standard type and time format was local time. Therefore, uploaded the files and edited the schema to STRING type to be able to create the table. Fixed this issue later by using the SUBSTR function and removing the necessary part of the string.
+There was an issue uploading hourly files and daily_sleep to BigQuery due to data type, as it only accepts UTC standard type and time format was local time. Therefore, uploaded the files and edited the schema to STRING type to be able to create the table. **Fixed this issue later by using the SUBSTR function and removing the necessary part of the string.**
 
 I will be importing the CSV files to BigQuery that contain the following tables:
 - daily_activity
@@ -121,8 +121,26 @@ ORDER BY
   fixed_date_sleep.sleep_date
 ```
 ## Analysis Phase
-Now that the data is clean and stored properly, I will organize, format and aggregate the data. I will also perform calculations in order to learn more about the data and identify relationships and trends.
+Now that the data is clean and stored properly; I will organize, format and aggregate the data. I will also perform calculations in order to learn more about the data and identify relationships and trends. I will then export the results from my queries and import them together with other clean data files into Tableau public to create visualizations. 
+```SQL
 
+```
+
+
+
+
+
+```SQL
+
+```
+
+```SQL
+
+```
+
+```SQL
+
+```
 
 
 
@@ -134,9 +152,7 @@ Now that the data is clean and stored properly, I will organize, format and aggr
 - rename columns
 - consistency date and time columns
   
-- merge daily_activity and daily_sleep to check for correlation
-
-Exported the results from my previous queries and will import them together with the other clean data files into Tableau Public to create visualizations.
+- merge daily_activity and daily_sleep to check for correlation, maybe more activity= more sleep.
 
 
 
