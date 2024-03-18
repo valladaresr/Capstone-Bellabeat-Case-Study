@@ -127,7 +127,7 @@ I found **3** duplicates in daily_sleep and those will be removed from the query
 ![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/2cd25d40-20bc-4662-9366-ffb2d5e98be8)
 
 ### Removing duplicates
-Removed duplicated rows from daily_sleep, used SUBSTR function to remove static timestamp 12:00:00 AM/PM from all dates; to be able to compare with daily_activity and daily_calories datasets
+Removed duplicated rows from daily_sleep, used WITH to create temporary table then used SUBSTR function to remove static timestamp 12:00:00 AM/PM from all dates; to be able to compare with daily_activity and daily_calories datasets
 ```SQL
 WITH fixed_date_sleep AS (  
 SELECT      
