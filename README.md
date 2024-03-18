@@ -37,6 +37,35 @@ I will be importing the CSV files to BigQuery that contain the following tables:
 - weight_log
 - heart_rate
 
+### Checking which column names are shared across tables
+```SQL
+SELECT
+ column_name,
+ COUNT(table_name)
+FROM
+ `tribal-logic-415822.fitbit_data.INFORMATION_SCHEMA.COLUMNS`
+GROUP BY
+ 1;
+```
+All tables share column name Id.
+```SQL
+SELECT
+ table_name,
+ SUM(CASE
+     WHEN column_name = "id" THEN 1
+   ELSE
+   0
+ END
+   ) AS id_column
+FROM
+ `tribal-logic-415822.fitbit_data.INFORMATION_SCHEMA.COLUMNS`
+GROUP BY
+ 1
+ORDER BY
+ 1 ASC;
+```
+![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/6f818fa9-feaa-4793-9bfe-17e78bb19413)
+
 ### Checking for number of distinct user ids on datasets
 Counting number of distinct ids for all the 7 datasets.
 ```SQL
@@ -52,11 +81,10 @@ FROM
 -- Counting number of distinct ids in daily_sleep
 SELECT
   COUNT(Distinct id) AS ids_total
-  FROM
+FROM
     `tribal-logic-415822.fitbit_data.daily_sleep`
 ```
-![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/2c1f9804-1433-43a4-8142-e770f3fe7f44)
-
+![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/a23c0f1b-c7fa-49fe-bec1-b1c036d50f87)
 
 ```SQL
 -- Counting number of distinct ids in weight_log
@@ -77,7 +105,6 @@ FROM
 ![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/89810b0b-8e14-4faf-8187-e86dfb8007cb)
 
 After thorough inspection, **33** user ids were found for daily_activity, daily_calories, hourly_calories and hourly_steps. The dataset for daily_sleep has **24** user ids. Also, heart_rate has **7** user ids, and weight_log has **8** user ids; I won't be considering those datasets for my analysis due to having a very small sample. 
-
 
 ### Checking for duplicates
 ```SQL
@@ -100,12 +127,12 @@ I found **3** duplicates in daily_sleep and those will be removed from the query
 ![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/2cd25d40-20bc-4662-9366-ffb2d5e98be8)
 
 ### Removing duplicates
-Removed duplicated rows from daily_sleep, used SUBSTR function to remove static timestamp 12:00:00 AM/PM from all dates; to be able to compare with daily_activity and daily_calories datasets. 
+Removed duplicated rows from daily_sleep, used SUBSTR function to remove static timestamp 12:00:00 AM/PM from all dates; to be able to compare with daily_activity and daily_calories datasets
 ```SQL
 WITH fixed_date_sleep AS (  
 SELECT      
 DISTINCT 
-*,      
+  *,      
 SUBSTR(date, 1, 9) AS sleep_date,    
 FROM 
   `tribal-logic-415822.fitbit_data.daily_sleep`)
@@ -121,26 +148,113 @@ ORDER BY
   fixed_date_sleep.sleep_date
 ```
 ## Analysis Phase
-Now that the data is clean and stored properly; I will organize, format and aggregate the data. I will also perform calculations in order to learn more about the data and identify relationships and trends. I will then export the results from my queries and import them together with other clean data files into Tableau public to create visualizations. 
+Now that the data is clean and stored properly; I will organize, format and aggregate the data. I will also perform calculations in order to learn more about the data and identify relationships and trends. I will then export the results from my queries, import them into a spreadsheet to look for trends and then import to Tableau public to create visualizations. 
+
+```SQL
+-- First part of query to double check that both tables share same data types, second part of query using JOIN statement to combine relevant data between daily_activity, daily_calories, and daily_sleep
+SELECT
+ column_name,
+ table_name,
+ data_type
+FROM
+  `tribal-logic-415822.fitbit_data.INFORMATION_SCHEMA.COLUMNS`
+WHERE
+ REGEXP_CONTAINS(LOWER(table_name),"daily")
+ AND column_name IN (
+ SELECT
+   column_name
+ FROM
+  `tribal-logic-415822.fitbit_data.INFORMATION_SCHEMA.COLUMNS`
+ WHERE
+   REGEXP_CONTAINS(LOWER(table_name),"daily")
+ GROUP BY
+   1
+ HAVING
+   COUNT(table_name) >=1)
+ORDER BY
+  1;
+SELECT
+  A.Id,
+  A.Calories,
+  A.TotalSteps,
+  A.TotalDistance,
+  A.ActivityDate,
+  A.SedentaryActiveDistance,
+  A.LightActiveDistance,
+  A.ModeratelyActiveDistance,
+  A.VeryActiveDistance,
+  A.SedentaryMinutes,
+  A.LightlyActiveMinutes,
+  A.FairlyActiveMinutes,
+  A.VeryActiveMinutes,
+  S.total_sleep_minutes,
+  S.total_bed_minutes,
+FROM
+`tribal-logic-415822.fitbit_data.daily_activity` A
+LEFT JOIN
+`tribal-logic-415822.fitbit_data.daily_calories` C
+ON
+ A.Id = C.Id
+ AND A.ActivityDate=C.ActivityDay
+ AND A.Calories = C.Calories
+LEFT JOIN
+`tribal-logic-415822.fitbit_data.daily_sleep` S
+ON
+ A.Id = S.Id
+ AND A.ActivityDate=S.sleep_date;
+```
+
+
+
+```SQL
+-- First part of query to double check that both tables share same data types, second part of query using JOIN statement to combine relevant data between hourly_calories and hourly_steps
+SELECT
+ column_name,
+ table_name,
+ data_type
+FROM
+  `tribal-logic-415822.fitbit_data.INFORMATION_SCHEMA.COLUMNS`
+WHERE
+ REGEXP_CONTAINS(LOWER(table_name),"hourly")
+ AND column_name IN (
+ SELECT
+  column_name
+ FROM
+  `tribal-logic-415822.fitbit_data.INFORMATION_SCHEMA.COLUMNS`
+ WHERE
+  REGEXP_CONTAINS(LOWER(table_name),"hourly")
+ GROUP BY
+  1
+ HAVING
+  COUNT(table_name) >=1)
+ORDER BY
+  1;
+SELECT
+  C.id,
+  C.activity_hour,
+  C.Calories,
+  S.total_steps,
+FROM
+  `tribal-logic-415822.fitbit_data.hourly_calories` C
+LEFT JOIN
+  `tribal-logic-415822.fitbit_data.hourly_steps` S
+ON
+  C.id = S.id
+  AND C.activity_hour=S.activity_hour
+ORDER BY
+  1;
+```
+
+```SQL
+
+```
+
 ```SQL
 
 ```
 
 
 
-
-
-```SQL
-
-```
-
-```SQL
-
-```
-
-```SQL
-
-```
 
 
 
@@ -149,7 +263,6 @@ Now that the data is clean and stored properly; I will organize, format and aggr
 - checking for duplicates
 - removing duplicates
 - checking for missing data
-- rename columns
 - consistency date and time columns
   
 - merge daily_activity and daily_sleep to check for correlation, maybe more activity= more sleep.
