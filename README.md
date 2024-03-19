@@ -351,25 +351,32 @@ ON
 ![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/7aed936d-ad8f-4e96-ada4-c00afe7c9c54)
 ![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/f456c5bd-2623-4fd7-a69a-c16f2dc7d110)
 
-Findings from the summaries:
+Key findings from analyzing the data:
 
-Avg. 
+- Avg. sleep hours per day is 6.99
+- Avg. total steps per day is 7638
+- Avg. total steps per hour is 320
+- Avg. total calories burned per hour is 97.4
+- Avg. sedentary minutes is 991, or 16.5 hours, which is high 
+- Avg. lightlyactive minutes is 192.81 or 3.2 hours
+- Avg. very active minutes is 21, which is low
+- The majority of the users are lightly active than very active
+- 
+- The majority of the users spend their time doing light activities rather than very active
+- High standard deviations reflecting a large amount of variation in the sample being studied
+
+
+- The majority of the users are more active, which days of week
+- The majority of the users are more active, what time of day
+- percentages of sedentary, light, faily vs. very active 
 
 
 
-a large standard deviation isn’t necessarily a bad thing; it just reflects a large amount of variation in the group that is being studied.
 
-
-
-
-- Preview tables and checking the data type
-- verifying number of users 
-- checking for duplicates
-- removing duplicates
-- checking for missing data
-- consistency date and time columns
   
 - merge daily_activity and daily_sleep to check for correlation, maybe more activity= more sleep.
 NOTES:
 
 
+
+According to the link CDC research. Taking 8,000 steps per day was associated with a 51% lower risk for all-cause mortality (or death from all causes). Taking 12,000 steps per day was associated with a 65% lower risk compared with taking 4,000 steps.
