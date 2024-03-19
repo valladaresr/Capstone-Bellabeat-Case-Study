@@ -369,13 +369,7 @@ Key findings from analyzing the data:
 - The majority of the users are more active, which days of week
 - The majority of the users are more active, what time of day
 - percentages of sedentary, light, faily vs. very active 
-
-
-
-
-  
-- merge daily_activity and daily_sleep to check for correlation, maybe more activity= more sleep.
-NOTES:
+- more actvity = more sleep ?
 
 
 
