@@ -148,10 +148,11 @@ ORDER BY
   fixed_date_sleep.sleep_date
 ```
 ## Analysis Phase
-Now that the data is clean and stored properly; I will organize, format and aggregate the data. I will also perform calculations in order to learn more about the data and identify relationships and trends. I will then export the results from my queries, import them into a spreadsheet to look for trends and then import to Tableau public to create visualizations. 
+Now that the data is clean and stored properly; I will organize, format and aggregate the data. I will also perform calculations in order to learn more about the data and identify relationships and trends. I will then export the results from my queries, import them into a spreadsheet to look for trends with the help of pivot tables and then import to Tableau public to create visualizations. 
 
 ```SQL
 -- First part of query to double check that both tables share same data types, second part of query using JOIN statement to combine relevant data between daily_activity, daily_calories, and daily_sleep
+
 SELECT
  column_name,
  table_name,
@@ -204,10 +205,9 @@ ON
  AND A.ActivityDate=S.sleep_date;
 ```
 
-
-
 ```SQL
 -- First part of query to double check that both tables share same data types, second part of query using JOIN statement to combine relevant data between hourly_calories and hourly_steps
+
 SELECT
  column_name,
  table_name,
@@ -244,16 +244,120 @@ ON
 ORDER BY
   1;
 ```
+Harvard cite
+For optimum health and function, the average adult should get seven to nine hours of sleep every night. But more than 60% of women regularly fall short of that goal. This may be due to insomnia or another underlying condition that may require medical attention.
+
+Excersice helps check grammar
 
 ```SQL
+-- Query to find if users meet recommended sleep time
 
+SELECT    
+  id,   
+  ROUND(AVG(total_sleep_minutes / 60), 2) AS total_sleep_hours,
+ CASE
+  WHEN AVG(total_sleep_minutes / 60) > 7 
+  THEN 'True'
+  ELSE 'False' 
+ END AS meets_recommended
+FROM `tribal-logic-415822.fitbit_data.daily_sleep`
+GROUP BY
+Id
+ORDER BY
+1
 ```
+Statistical summaries of separate queries to clearly help understand the data better.
+```SQL
+-- Query to create statistical summary for daily_sleep
+
+SELECT 
+  ROUND(AVG(total_sleep_minutes/60), 4) AS avg_sleep_hours,
+  ROUND(MIN(total_sleep_minutes/60), 4) AS min_sleep_hours,
+  ROUND(MAX(total_sleep_minutes/60), 4) AS max_sleep_hours,
+  ROUND(STDDEV(total_sleep_minutes/60), 4) AS stddev_sleep_hours,
+  ROUND(VARIANCE(total_sleep_minutes/60), 4) AS variance_sleep_hours
+FROM
+`tribal-logic-415822.fitbit_data.daily_activity` A
+LEFT JOIN
+`tribal-logic-415822.fitbit_data.daily_calories` C
+ON
+ A.Id = C.Id
+ AND A.ActivityDate=C.ActivityDay
+ AND A.Calories = C.Calories
+LEFT JOIN
+`tribal-logic-415822.fitbit_data.daily_sleep` S
+ON
+ A.Id = S.Id
+ AND A.ActivityDate=S.sleep_date;
+```
+![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/991bff89-4c2d-47bb-a5a5-332f4a8b535a)
 
 ```SQL
+-- Query to create statistical summary for daily_activity
 
+SELECT
+  ROUND(AVG(TotalSteps)) AS avg_total_steps,
+  MIN(TotalSteps) AS min_total_steps,
+  MAX(TotalSteps) AS max_total_steps,
+  ROUND(STDDEV(TotalSteps), 2) AS stddev_total_steps,
+  ROUND(AVG(SedentaryMinutes), 2) AS avg_sm,
+  ROUND(AVG(LightlyActiveMinutes), 2) AS avg_lam,
+  ROUND(AVG(FairlyActiveMinutes), 2) AS avg_fam,
+  ROUND(AVG(VeryActiveMinutes), 2) AS avg_vam,
+  SUM(SedentaryMinutes) AS sum_sm,
+  SUM(LightlyActiveMinutes) AS sum_lam,
+  SUM(FairlyActiveMinutes) AS sum_fam,
+  SUM(VeryActiveMinutes) AS sum_vam,
+  SUM(SedentaryMinutes + LightlyActiveMinutes + FairlyActiveMinutes + VeryActiveMinutes) AS sum_active_minutes
+FROM
+`tribal-logic-415822.fitbit_data.daily_activity` A
+LEFT JOIN
+`tribal-logic-415822.fitbit_data.daily_calories` C
+ON
+  A.Id = C.Id
+  AND A.ActivityDate=C.ActivityDay
+  AND A.Calories = C.Calories
+LEFT JOIN
+  `tribal-logic-415822.fitbit_data.daily_sleep` S
+ON
+  A.Id = S.Id
+  AND A.ActivityDate=S.sleep_date;
 ```
+![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/f6186d73-b140-4360-b2e3-7fd886f041fd)
+![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/0c2a9fd2-a414-4a21-89f8-914b52683c49)
+
+```SQL
+-- Query to create statistical summary for hourly_calories and hourly_steps
+
+SELECT
+  AVG(total_steps) AS avg_steps,
+  MIN(total_steps) AS min_steps,
+  MAX(total_steps) AS max_steps,
+  STDDEV(total_steps) AS stddev_steps,
+  VARIANCE(total_steps) AS var_steps,
+  AVG(Calories) AS avg_calories,
+  MIN(Calories) AS min_calories,
+  MAX(Calories) AS max_calories,
+  STDDEV(Calories) AS stddev_calories,
+  VARIANCE(Calories) AS var_calories,
+FROM
+ `tribal-logic-415822.fitbit_data.hourly_calories` C
+LEFT JOIN
+ `tribal-logic-415822.fitbit_data.hourly_steps` S
+ON
+ C.id = S.id
+ AND C.activity_hour=S.activity_hour
+```
+![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/7aed936d-ad8f-4e96-ada4-c00afe7c9c54)
+![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/f456c5bd-2623-4fd7-a69a-c16f2dc7d110)
+
+Findings from the summaries:
+
+Avg. 
 
 
+
+a large standard deviation isn’t necessarily a bad thing; it just reflects a large amount of variation in the group that is being studied.
 
 
 
@@ -266,6 +370,6 @@ ORDER BY
 - consistency date and time columns
   
 - merge daily_activity and daily_sleep to check for correlation, maybe more activity= more sleep.
-
+NOTES:
 
 
