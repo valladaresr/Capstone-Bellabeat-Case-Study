@@ -247,7 +247,8 @@ ORDER BY
 Harvard cite
 For optimum health and function, the average adult should get seven to nine hours of sleep every night. But more than 60% of women regularly fall short of that goal. This may be due to insomnia or another underlying condition that may require medical attention.
 
-Excersice helps check grammar
+
+classify users by daily average hours of sleep
 
 ```SQL
 -- Query to find if users meet recommended sleep time
@@ -261,6 +262,24 @@ SELECT
   ELSE 'False' 
  END AS meets_recommended
 FROM `tribal-logic-415822.fitbit_data.daily_sleep`
+GROUP BY
+Id
+ORDER BY
+1
+```
+
+```SQL
+-- Query to find if users meet recommended steps per day
+SELECT    
+  Id,
+  ROUND(AVG(TotalSteps), 0) AS avg_daily_steps,  
+ CASE
+  WHEN AVG(TotalSteps) > 10000 
+  THEN 'True'
+  ELSE 'False' 
+ END AS meets_steps_recommended
+FROM
+  `tribal-logic-415822.fitbit_data.daily_activity` 
 GROUP BY
 Id
 ORDER BY
@@ -371,6 +390,11 @@ Key findings from analyzing the data:
 - percentages of sedentary, light, faily vs. very active 
 - more actvity = more sleep ?
 
+![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/4f7df36d-391a-41bc-9c36-635176f26b03)
+
+![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/da2bac9e-bd25-40c1-b311-8fa3ed8d2ffd)
+
+![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/6be7e5ca-0427-4110-89c3-dccf2cbc2ed5)
 
 
 According to the link CDC research. Taking 8,000 steps per day was associated with a 51% lower risk for all-cause mortality (or death from all causes). Taking 12,000 steps per day was associated with a 65% lower risk compared with taking 4,000 steps.
