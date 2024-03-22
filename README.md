@@ -147,7 +147,7 @@ ORDER BY
   id,
   fixed_date_sleep.sleep_date
 ```
-## Analysis Phase
+## Analyze & Share Phases
 Now that the data is clean and stored properly; I will organize, format and aggregate the data. I will also perform calculations in order to learn more about the data and identify relationships and trends. I will then export the results from my queries, import them into a spreadsheet to look for trends and relationships by using pivot tables and then import to Tableau public to create visualizations. 
 
 ```SQL
@@ -271,6 +271,7 @@ After classifying users based on their daily sleep time, the Fitbit data below s
 <p align="center">
   <img src="https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/4f7df36d-391a-41bc-9c36-635176f26b03"/>
 </p>
+
 
 
 ```SQL
