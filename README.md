@@ -148,7 +148,7 @@ ORDER BY
   fixed_date_sleep.sleep_date
 ```
 ## Analysis Phase
-Now that the data is clean and stored properly; I will organize, format and aggregate the data. I will also perform calculations in order to learn more about the data and identify relationships and trends. I will then export the results from my queries, import them into a spreadsheet to look for trends with the help of pivot tables and then import to Tableau public to create visualizations. 
+Now that the data is clean and stored properly; I will organize, format and aggregate the data. I will also perform calculations in order to learn more about the data and identify relationships and trends. I will then export the results from my queries, import them into a spreadsheet to look for trends and relationships by using pivot tables and then import to Tableau public to create visualizations. 
 
 ```SQL
 -- First part of query to double check that both tables share same data types, second part of query using JOIN statement to combine relevant data between daily_activity, daily_calories, and daily_sleep
@@ -244,11 +244,10 @@ ON
 ORDER BY
   1;
 ```
-Harvard cite
-For optimum health and function, the average adult should get seven to nine hours of sleep every night. But more than 60% of women regularly fall short of that goal. This may be due to insomnia or another underlying condition that may require medical attention.
 
+I am interested in finding and classifying users based on their daily sleep time. According to [Harvard Medical School](https://www.health.harvard.edu/womens-health/women-and-sleep-one-simple-step-to-a-longer-healthier-life) Average adults should get seven to nine hours of sleep every night for optimum health and function; however, 60% of women regularly fall short of that goal. They state that this could be caused do to insomnia or another underlying condition that may require medical attention. 
 
-classify users by daily average hours of sleep
+The following SQL query will help me do that.
 
 ```SQL
 -- Query to find if users meet recommended sleep time
@@ -267,6 +266,8 @@ Id
 ORDER BY
 1
 ```
+After classifying users based on their daily sleep time, the Fitbit data below shows that 46% of users sleep more than seven hours, and 54% less than 7 hours. The results support Harvard's Medical School claim and show that the majority of women fall short of the recommended sleep hours. A bigger sample would reflect a better representation of it. 
+
 <p align="center">
   <img src="https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/4f7df36d-391a-41bc-9c36-635176f26b03"/>
 </p>
