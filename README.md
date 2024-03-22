@@ -266,7 +266,7 @@ Id
 ORDER BY
 1
 ```
-After classifying users based on their daily sleep time, the Fitbit data below shows that 46% of users sleep more than seven hours, and 54% less than 7 hours. The results support Harvard's Medical School claim and show that the majority of women fall short of the recommended sleep hours. A bigger sample would reflect a better representation of it. 
+After classifying users based on their daily sleep time, the Fitbit data below shows that 46% of users sleep more than seven hours, and 54% less than 7 hours. The results support Harvard Medical School's claim and show that the majority of women fall short of the recommended sleep hours. A bigger sample would reflect a better representation of it. 
 
 <p align="center">
   <img src="https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/4f7df36d-391a-41bc-9c36-635176f26b03"/>
