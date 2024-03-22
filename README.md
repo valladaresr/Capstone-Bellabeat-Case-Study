@@ -150,6 +150,7 @@ ORDER BY
 ## Analyze & Share Phases
 Now that the data is clean and stored properly; I will organize, format and aggregate the data. I will also perform calculations in order to learn more about the data and identify relationships and trends. I will then export the results from my queries, import them into a spreadsheet to look for trends and relationships by using pivot tables and then import to Tableau public to create visualizations. 
 
+### Aggregating data
 ```SQL
 -- First part of query to double check that both tables share same data types, second part of query using JOIN statement to combine relevant data between daily_activity, daily_calories, and daily_sleep
 
@@ -244,8 +245,9 @@ ON
 ORDER BY
   1;
 ```
+### User Classification
 
-I am interested in finding and classifying users based on their daily sleep time. According to [Harvard Medical School](https://www.health.harvard.edu/womens-health/women-and-sleep-one-simple-step-to-a-longer-healthier-life), average adults should get seven to nine hours of sleep every night for optimum health and function; however, 60% of women regularly fall short of that goal. They state that this could be caused do to insomnia or another underlying condition that may require medical attention. 
+I am interested in finding and classifying users based on their daily sleep time. According to [Harvard Medical School](https://www.health.harvard.edu/womens-health/women-and-sleep-one-simple-step-to-a-longer-healthier-life), average adults should get seven to nine hours of sleep every night for optimum health and function; however, 60% of women regularly fall short of that goal. They state that this could be caused do to insomnia or another underlying condition that may require medical attention. Therefore, I will classify users to see the distribution based on meeting or not meeting the recommended sleep duration of seven hours.
 
 The following SQL query will help me do that.
 
@@ -266,13 +268,13 @@ Id
 ORDER BY
 1
 ```
-After classifying users based on their daily sleep time, the Fitbit data below shows that 46% of users sleep more than seven hours, and 54% less than 7 hours. The results support Harvard Medical School's claim and show that the majority of women fall short of the recommended sleep hours. A bigger sample would reflect a better representation of it. 
+After classifying users based on their daily sleep duration, the Fitbit data below shows that 46% of users sleep more than seven hours, and 54% less than 7 hours. The results support Harvard Medical School's claim and show that the majority of women fall short of the recommended sleep hours. A bigger sample would lead to a better representation.
 
 <p align="center">
   <img src="https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/4f7df36d-391a-41bc-9c36-635176f26b03"/>
 </p>
 
-
+I am also interested in classifying users based on their daily steps. The [Centers for Disease Control and Prevention (CDC)](https://www.cdc.gov/diabetes/prevention/pdf/postcurriculum_session8.pdf) recommends that most adults aim for 10,000 steps per day. The average American only takes 3,000 - 4,000 steps per day. Therefore, I will classify users based on meeting or not meeting 10,000 daily steps, as this amount is considered being "active."
 
 ```SQL
 -- Query to find if users meet recommended steps per day
@@ -295,6 +297,7 @@ ORDER BY
   <img src="https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/da2bac9e-bd25-40c1-b311-8fa3ed8d2ffd"/>
 </p>
 
+The results show that 21% of users do more than 10,000 daily steps and 79% do less than the recommended amount. However, as it can be seen in the statistical summaries sections below, the average total steps per day is 7,638 for the Fitbit users. This shows that Fitbit users are generally somewhat more active than the average American. Most users do not meet the recommended amount of 10,000 steps, because of being short approximately 2,500 steps.
 
 ### Statistical summaries to help understand the data better
 ```SQL
