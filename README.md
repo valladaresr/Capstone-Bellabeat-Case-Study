@@ -402,22 +402,22 @@ ON
 - The majority of the users are more active, what time of day
 - percentages of sedentary, light, faily vs. very active 
 
--- Users' Daily activity distribution
+### Users' daily activity distribution
 The pie chart below shows the users' daily activity distribution based on their activity type duration. It shows that 81% of the users' time is spent doing sedentary type activities, which means a lifestyle with a lot of sitting and lying down, and consequently, fewer calories are burned. It also shows that 16% of their time is considered lighly active, 1% faily active, and 2 % very active. Relating the data to the statistical summary shown above, users' daily average sedentary time is 991 minutes or 16.5 hours, while the average very active time is only 21 minutes.
 
 ![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/6be7e5ca-0427-4110-89c3-dccf2cbc2ed5)
 
-The following chart shows a breakdown of the hourly average steps users make during a day. It shows that users' are the most active between 5-8 PM, followed by 12-3 PM
-
-Avg. hourly steps
+### Hourly average steps
+The following chart illustrates a breakdown of the hourly average steps users make during a day. It shows that users' are most active between 5-8 PM, followed by 12-3 PM. This indicates that users are more active around lunch time and most active after leaving work in the evening. I believe the highest activity spike is due to most people exercising in the evening rather than the morning.
 
 ![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/4d4ef404-387f-43c8-92e3-8f2ce92ae24d)
 
-Daily Total Steps
+### Total steps per weekday
+The next chart displays the total steps per weekday. It reveals that Tuesday sees the highest activity levels among users, followed by a gradual decline on Wednesday and Thursday. Additionally, Saturday shows as the most active weekend day, in contrast to Sunday, which ranks as the least active day of the week.
 
 ![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/469cad4f-93ed-4e7e-a24d-3ae4e5443a42)
 
-Relationship between Daily Steps and Total Calories
+### Relationship between daily steps and total calories
 
 ![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/7f74ee17-e5fc-4773-964d-4f4ad2f15895)
 
