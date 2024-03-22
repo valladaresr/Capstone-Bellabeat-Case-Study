@@ -105,7 +105,7 @@ FROM
 ```
 ![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/89810b0b-8e14-4faf-8187-e86dfb8007cb)
 
-After thorough inspection, **33** user ids were found for daily_activity, daily_calories, hourly_calories and hourly_steps. The dataset for daily_sleep has **24** user ids. Also, heart_rate has **7** user ids, and weight_log has **8** user ids; I won't be considering those datasets for my analysis due to having a very small sample. Despite the minimal sample size requirement being 30, and daily_sleep only having **24** user ids, I will still be using the dataset for practice purposes as I am curious to see what the data will show. As the sample size decreases, the confidence interval becomes wider and less precise.
+After a thorough inspection, **33** shared unique user ids were found for daily_activity, daily_calories, hourly_calories and hourly_steps. The dataset for daily_sleep has **24** user ids. Also, heart_rate has **7** user ids, and weight_log has **8** user ids; I won't be considering those datasets for my analysis due to having a very small sample. Despite the minimal sample size requirement being 30, and daily_sleep only having **24** user ids, I still intend to use the dataset for practice purposes as I am curious to see what the data will show. As the sample size decreases, the confidence interval becomes wider and less precise.
 
 ### Checking for duplicates
 ```SQL
@@ -403,8 +403,11 @@ ON
 - percentages of sedentary, light, faily vs. very active 
 
 -- Users' Daily activity distribution
+The pie chart below shows the users' daily activity distribution based on their activity type duration. It shows that 81% of the users' time is spent doing sedentary type activities, which means a lifestyle with a lot of sitting and lying down, and consequently, fewer calories are burned. It also shows that 16% of their time is considered lighly active, 1% faily active, and 2 % very active. Relating the data to the statistical summary shown above, users' daily average sedentary time is 991 minutes or 16.5 hours, while the average very active time is only 21 minutes.
 
 ![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/6be7e5ca-0427-4110-89c3-dccf2cbc2ed5)
+
+The following chart shows a breakdown of the hourly average steps users make during a day. It shows that users' are the most active between 5-8 PM, followed by 12-3 PM
 
 Avg. hourly steps
 
