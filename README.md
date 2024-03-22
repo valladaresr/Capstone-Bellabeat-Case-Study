@@ -297,7 +297,7 @@ ORDER BY
 
 The results show that 21% of users do more than 10,000 daily steps and 79% do less than the recommended amount. However, as it can be seen in the statistical summaries sections below, the average total steps per day is 7,638 for the Fitbit users. This shows that Fitbit users are generally somewhat more active than the average American. Most users do not meet the recommended amount of 10,000 steps, because of being short approximately 2,500 steps.
 
-### Statistical summaries to help understand the data better
+### Statistical summaries to enhance comprehension of the data
 ```SQL
 -- Query to create statistical summary for daily_sleep
 
