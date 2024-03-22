@@ -267,6 +267,10 @@ Id
 ORDER BY
 1
 ```
+<p align="center">
+  <img src="https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/4f7df36d-391a-41bc-9c36-635176f26b03"/>
+</p>
+
 
 ```SQL
 -- Query to find if users meet recommended steps per day
@@ -285,7 +289,12 @@ Id
 ORDER BY
 1
 ```
-Statistical summaries of separate queries to clearly help understand the data better.
+<p align="center">
+  <img src="https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/da2bac9e-bd25-40c1-b311-8fa3ed8d2ffd"/>
+</p>
+
+
+### Statistical summaries to help understand the data better
 ```SQL
 -- Query to create statistical summary for daily_sleep
 
@@ -370,7 +379,7 @@ ON
 ![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/7aed936d-ad8f-4e96-ada4-c00afe7c9c54)
 ![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/f456c5bd-2623-4fd7-a69a-c16f2dc7d110)
 
-Key findings from analyzing the data:
+### Key findings from analyzing the data
 
 - Avg. sleep hours per day is 6.99
 - Avg. total steps per day is 7638
@@ -388,13 +397,26 @@ Key findings from analyzing the data:
 - The majority of the users are more active, which days of week
 - The majority of the users are more active, what time of day
 - percentages of sedentary, light, faily vs. very active 
-- more actvity = more sleep ?
 
-![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/4f7df36d-391a-41bc-9c36-635176f26b03)
-
-![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/da2bac9e-bd25-40c1-b311-8fa3ed8d2ffd)
+-- Users' Daily activity distribution
 
 ![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/6be7e5ca-0427-4110-89c3-dccf2cbc2ed5)
 
+Avg. hourly steps
+
+![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/4d4ef404-387f-43c8-92e3-8f2ce92ae24d)
+
+Daily Total Steps
+
+![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/469cad4f-93ed-4e7e-a24d-3ae4e5443a42)
+
+Relationship between Daily Steps and Total Calories
+
+![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/7f74ee17-e5fc-4773-964d-4f4ad2f15895)
+
+
+
+
 
 According to the link CDC research. Taking 8,000 steps per day was associated with a 51% lower risk for all-cause mortality (or death from all causes). Taking 12,000 steps per day was associated with a 65% lower risk compared with taking 4,000 steps.
+
