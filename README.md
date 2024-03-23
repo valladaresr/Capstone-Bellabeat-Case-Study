@@ -383,7 +383,7 @@ ON
 ![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/7aed936d-ad8f-4e96-ada4-c00afe7c9c54)
 ![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/f456c5bd-2623-4fd7-a69a-c16f2dc7d110)
 
-## Key findings from analyzing the data
+### Key findings from analyzing the data
 
 - Avg. sleep hours per day is 6.99
 - Avg. total steps per day is 7638
