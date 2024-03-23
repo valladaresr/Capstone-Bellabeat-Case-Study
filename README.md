@@ -267,7 +267,7 @@ Id
 ORDER BY
 1
 ```
-After classifying users based on their daily sleep duration, the Fitbit data below shows that 46% of users sleep more than seven hours, and 54% less than 7 hours. The results support Harvard Medical School's claim and show that the majority of women fall short of the recommended sleep hours. A bigger sample would lead to a better representation.
+After classifying users based on their daily sleep duration, the Fitbit data below shows that 46% of users sleep more than seven hours, and 54% less than 7 hours. The results support Harvard Medical School's claim and show that the majority of women fall short of the recommended sleep hours. A bigger sample would lead to a more accurate representation.
 
 <p align="center">
   <img src="https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/4f7df36d-391a-41bc-9c36-635176f26b03"/>
@@ -296,7 +296,7 @@ ORDER BY
   <img src="https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/da2bac9e-bd25-40c1-b311-8fa3ed8d2ffd"/>
 </p>
 
-The results show that 21% of users do more than 10,000 daily steps and 79% do less than the recommended amount. However, as it can be seen in the statistical summaries sections below, the average total steps per day is 7,638 for the Fitbit users. This shows that Fitbit users are generally somewhat more active than the average American. Most users do not meet the recommended daily amount of 10,000 steps, because of being short approximately 2,500 steps.
+The results indicate that 21% of users achieve more than 10,000 daily steps, while 79% fall short of the recommended amount. However, the statistical summaries below reveal that the average total steps per day among Fitbit users is 7,638, suggesting a generally higher activity level compared to the average American. Despite this, the majority of users do not meet the recommended daily goal of 10,000 steps, falling short approximately 2,500 steps on average.
 
 ### Statistical summaries to enhance comprehension of the data
 ```SQL
@@ -383,15 +383,13 @@ ON
 ![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/7aed936d-ad8f-4e96-ada4-c00afe7c9c54)
 ![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/f456c5bd-2623-4fd7-a69a-c16f2dc7d110)
 
-### Key findings from analyzing the data
+### A few key findings from analyzing the previous data
 
 - Avg. sleep hours per day is 6.99
 - Avg. total steps per day is 7638
-- Avg. total steps per hour is 320
-- Avg. total calories burned per hour is 97.4
-- Avg. sedentary minutes is 991, or 16.5 hours
-- Avg. lightly active minutes is 192.81 or 3.2 hours
-- Avg. very active minutes is 21
+- Avg. daily sedentary minutes is 991, or 16.5 hours
+- Avg. daily lightly active minutes is 192.81 or 3.2 hours
+- Avg. daily very active minutes is 21
 - High standard deviations reflect a large amount of variation in the sample being studied
 
 
@@ -414,6 +412,9 @@ The next chart displays the total steps per weekday. It reveals that Tuesday see
 The next chart shows the relationship between daily steps and total calories burned. Following a regression analysis, a positive linear correlation with an R-squared value of .33 can be observed. This value suggests that the data points are moderately dispersed from the regression line as the R-squared value is closer to 0. The upward slope of the relationship indicates that as the daily steps increase, there is a consistent increase in calories burned.
 
 ![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/7f74ee17-e5fc-4773-964d-4f4ad2f15895)
+
+## Act Phase
+
 
 
 
