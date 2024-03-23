@@ -383,32 +383,25 @@ ON
 ![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/7aed936d-ad8f-4e96-ada4-c00afe7c9c54)
 ![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/f456c5bd-2623-4fd7-a69a-c16f2dc7d110)
 
-### Key findings from analyzing the data
+## Key findings from analyzing the data
 
 - Avg. sleep hours per day is 6.99
 - Avg. total steps per day is 7638
 - Avg. total steps per hour is 320
 - Avg. total calories burned per hour is 97.4
-- Avg. sedentary minutes is 991, or 16.5 hours, which is high 
-- Avg. lightlyactive minutes is 192.81 or 3.2 hours
-- Avg. very active minutes is 21, which is low
-- The majority of the users are lightly active than very active
-- 
-- The majority of the users spend their time doing light activities rather than very active
-- High standard deviations reflecting a large amount of variation in the sample being studied
+- Avg. sedentary minutes is 991, or 16.5 hours
+- Avg. lightly active minutes is 192.81 or 3.2 hours
+- Avg. very active minutes is 21
+- High standard deviations reflect a large amount of variation in the sample being studied
 
-
-- The majority of the users are more active, which days of week
-- The majority of the users are more active, what time of day
-- percentages of sedentary, light, faily vs. very active 
 
 ### Users' daily activity distribution
-The pie chart below shows the users' daily activity distribution based on their activity type duration. It shows that 81% of the users' time is spent doing sedentary type activities, which means a lifestyle with a lot of sitting and lying down, and consequently, fewer calories are burned. It also shows that 16% of their time is considered lighly active, 1% faily active, and 2 % very active. Relating the data to the statistical summary shown above, users' daily average sedentary time is 991 minutes or 16.5 hours, while the average very active time is only 21 minutes.
+The pie chart below depicts the distribution of users' daily activities based on their activity type durations. It reveals that 81% of users' time is dedicated to sedendary activities, indicating a lifestyle characterized by prolonged sitting and lying down, resulting in lower calorie expenditure. Additionally, the chart indicates that 16% of their time is spent lightly active, 1% fairly active, and 2% very active. Relating this data to the statistical summary presented above, the average daily sedentary time for users is 991 minutes, or 16.5 hours, while the average average very active time is only 21 minutes. Also, the majority of the users spend their time doing light activities rather than very active. 
 
 ![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/6be7e5ca-0427-4110-89c3-dccf2cbc2ed5)
 
 ### Hourly average steps
-The following chart illustrates a breakdown of the hourly average steps users make during a day. It shows that users' are most active between 5-8 PM, followed by 12-3 PM. This indicates that users are more active around lunch time and most active after leaving work in the evening. I believe the highest activity spike is due to most people exercising in the evening rather than the morning.
+The following chart illustrates a breakdown of the hourly average steps users take throughout the day. It shows that users are most active between 5-8 PM, followed by 12-3 PM. This indicates that users are more active around lunchtime and reach their peak activity after leaving work in the evening. I believe the highest activity spike is due to most people exercising in the evening rather than the morning.
 
 ![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/4d4ef404-387f-43c8-92e3-8f2ce92ae24d)
 
@@ -418,6 +411,7 @@ The next chart displays the total steps per weekday. It reveals that Tuesday see
 ![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/469cad4f-93ed-4e7e-a24d-3ae4e5443a42)
 
 ### Relationship between daily steps and total calories
+The next chart shows the relationship between daily steps and total calories burned. Following a regression analysis, a positive linear correlation with an R-squared value of .33 can be observed. This value suggests that the data points are moderately dispersed from the regression line as the R-squared value is closer to 0. The upward slope of the relationship indicates that as the daily steps increase, there is a consistent increase in calories burned.
 
 ![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/7f74ee17-e5fc-4773-964d-4f4ad2f15895)
 
