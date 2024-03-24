@@ -17,7 +17,7 @@ Questions to answer for stakeholders:
 
 ## Prepare Phase
 ### Dataset Source & Information
-[FitBit Fitness Tracker Data](https://www.kaggle.com/datasets/arashnic/fitbit) (CC0: Public Domain, dataset made available through Mobius): This Kaggle data set contains personal fitness tracker from thirty fitbit users. Thirty eligible Fitbit users consented to the submission of personal tracker data, including minute-level output for physical activity, heart rate, and sleep monitoring. It includes information about daily activity, steps, and heart rate that can be used to explore users’ habits.
+[FitBit Fitness Tracker Data](https://www.kaggle.com/datasets/arashnic/fitbit) (CC0: Public Domain, dataset made available through Mobius): This Kaggle data set contains personal fitness tracker from thirty Fitbit users. Thirty eligible Fitbit users consented to the submission of personal tracker data, including minute-level output for physical activity, heart rate, and sleep monitoring. It includes information about daily activity, steps, and heart rate that can be used to explore users’ habits.
 
 ### Dataset Credibility and Observations
 I stored the data, identified organization and data format, and then sorted and filtered using Google Sheets. Limited dataset includes 18 CSV files. Each file contains distinct quantitative data from 33 users. It is important to note that this constitutes a relatively small sample, and no demographic information was provided, potentially introducing sampling bias. Therefore, the sample may not accurately represent a broader population. Aditionally, the dataset is not current, encompassing only 2 months of data.
