@@ -414,11 +414,15 @@ The next chart shows the relationship between daily steps and total calories bur
 ![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/7f74ee17-e5fc-4773-964d-4f4ad2f15895)
 
 ## Act Phase
+Bellabeat is a company that empowers women with knowledge about their own health and habits, and helps them make healthy decisions. Analyzing trends and relationships in the Fitbit data offers valuable insights about the users’ sleep patterns and activity levels that can be applied to Bellabeat’s customers, given their shared interest in health and fitness among their customer base. 
 
 
-
-
-
-
-According to the link CDC research. Taking 8,000 steps per day was associated with a 51% lower risk for all-cause mortality (or death from all causes). Taking 12,000 steps per day was associated with a 65% lower risk compared with taking 4,000 steps.
-
+| Attempt | #1  |
+| ------- | --- |
+| Sleep duration | Due to the sleep deficiency observed among users, indicated by the majority (54%) falling short of the recommended 7 hours, consider integrating sleep features such as alarms, to assist users in planning their sleep schedules and improve sleep quality. |
+| Step count | Despite generally higher activity levels among the Fitbit users compared to the national average, there’s a notable gap of approximately 2,500 steps in meeting the recommended daily step count of 10,000. Consider incentivizing users to achieve the daily goal of 10,000 steps by offering challenges and rewards as motivation.  |
+| Activity levels | A key finding was that 81% of the users’ total time is dedicated to sedentary activities, with an average of 16.5 hours daily. Sedentary behavior predominates in users’ daily activities, indicating a need to promote more active lifestyles. I recommend implementing reminders to encourage movement after detecting prolonged sedentary activity and break the sedentary cycle.  |
+| Hourly activity | Users exhibit highest activity levels between 5-8 PM. Offer challenges or events during these peak periods to engage users effectively. Given the prevalence of a 9-5 work pattern, I suggest developing personalized activity plans tailored to users’ preferences and schedules. Inform them of the importance of incorporating higher physical activity throughout the day. |
+| Weekday activity  | Activity levels peak from Tuesday to Thursday, while reduced activity can be observed from Friday to Monday. Therefore, offer targeted incentives during the less active period of the week to promote physical activity. |
+| Calories burned | Educate users about the correlation between daily step count and calories burned to empower them to make informed decisions about their activity levels and dietary choices. Foster a supportive and motivating community environment where users can share their achievements and support to each other. |
+| Continuous improvement | By implementing these insights and recommendations, Bellabeat can enhance its platform’s effectiveness in promoting active lifestyles and improving users’ overall health. I recommend Bellabeat to continuously gather and analyze its own company data and feedback from customers, to monitor changes over time and assess the impact of the implemented strategies on user behavior. |
