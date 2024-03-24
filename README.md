@@ -20,14 +20,12 @@ Questions to answer for stakeholders:
 [FitBit Fitness Tracker Data](https://www.kaggle.com/datasets/arashnic/fitbit) (CC0: Public Domain, dataset made available through Mobius): This Kaggle data set contains personal fitness tracker from thirty fitbit users. Thirty eligible Fitbit users consented to the submission of personal tracker data, including minute-level output for physical activity, heart rate, and sleep monitoring. It includes information about daily activity, steps, and heart rate that can be used to explore users’ habits.
 
 ### Dataset Credibility and Observations
-Data was stored, identified organization, data format, and then sorted and filtered using Google Sheets. Limited dataset includes 18 CSV files. Each file contains different quantitative data from 33 users. It is a small sample and there was no demographic information provided, so we could be facing a sampling bias. Therefore, the sample might not be representative of the population as a whole. 
-Also, dataset is not current and there are only 2 months of data available.
-# Add about 30 is the minimal sample, and discuss confidence interval.
+I stored the data, identified organization and data format, and then sorted and filtered using Google Sheets. Limited dataset includes 18 CSV files. Each file contains distinct quantitative data from 33 users. It is important to note that this constitutes a relatively small sample, and no demographic information was provided, potentially introducing sampling bias. Therefore, the sample may not accurately represent a broader population. Aditionally, the dataset is not current, encompassing only 2 months of data.
 
 ## Process Phase
-I will be uploading the CSV files that are useful in BigQuery and using cleaning techniques in SQL. I will be checking for missing data, data type and format, duplicates, column names, and consistency with date and time columns. It could also be easily cleaned by fixing issues like formatting dates and removing duplicates, and filtering data with a pivot table through Google Sheets. I will continue searching for issues with the data throughout the entire analysis.
+I will be uploading the relevant CSV files into BigQuery and applying various data cleaning techniques using SQL. This will involve checking for missing data, ensuring correct data types and formats, identifying and removing duplicates, verifying column names, and ensuring consistency within date and time columns. All these cleaning methods could also be done using Google Sheets. I will continue searching for any potential data issues throughout the entire analysis.
 
-There was an issue uploading hourly files and daily_sleep to BigQuery due to data type, as it only accepts UTC standard type and time format was local time. Therefore, uploaded the files and edited the schema to STRING type to be able to create the table. **Fixed this issue later on by using the SUBSTR function and removing the necessary part of the string.**
+There was an issue uploading hourly files and daily_sleep to BigQuery due to data type, as it only accepts UTC standard type and time format was local time. Therefore, uploaded the files and edited the schema to STRING type in order to create the table. **Fixed this issue later on by using the SUBSTR function and removing the necessary part of the string.**
 
 I will be importing the CSV files to BigQuery that contain the following tables:
 - daily_activity
@@ -388,13 +386,12 @@ ON
 - Avg. sleep hours per day is 6.99
 - Avg. total steps per day is 7638
 - Avg. daily sedentary minutes is 991, or 16.5 hours
-- Avg. daily lightly active minutes is 192.81 or 3.2 hours
 - Avg. daily very active minutes is 21
 - High standard deviations reflect a large amount of variation in the sample being studied
 
 
 ### Users' daily activity distribution
-The pie chart below depicts the distribution of users' daily activities based on their activity type durations. It reveals that 81% of users' time is dedicated to sedendary activities, indicating a lifestyle characterized by prolonged sitting and lying down, resulting in lower calorie expenditure. Additionally, the chart indicates that 16% of their time is spent lightly active, 1% fairly active, and 2% very active. Relating this data to the statistical summary presented above, the average daily sedentary time for users is 991 minutes, or 16.5 hours, while the average average very active time is only 21 minutes. Also, the majority of the users spend their time doing light activities rather than very active. 
+The pie chart below depicts the distribution of users' daily activities based on their activity type durations. It reveals that 81% of users' time is dedicated to sedendary activities, indicating a lifestyle characterized by prolonged sitting and lying down, resulting in lower calorie expenditure. Additionally, the chart indicates that 16% of their time is spent lightly active, 1% fairly active, and 2% very active. Relating this data to the statistical summary presented above, the average daily sedentary time for users is 991 minutes, or 16.5 hours, while the average very active time is only 21 minutes. Also, the majority of the users spend their time doing light activities rather than very active. 
 
 ![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/6be7e5ca-0427-4110-89c3-dccf2cbc2ed5)
 
@@ -420,11 +417,11 @@ The following insights and recommendations could help influence Bellabeat’s ma
 
 | Recommendation | Description  |
 | ------- | --- |
-| Sleep duration | Due to the sleep deficiency observed among users, indicated by the majority (54%) falling short of the recommended 7 hours, consider **integrating sleep features such as alarms, to assist users in planning their sleep schedules and improve sleep quality**. |
-| Step count | Despite generally higher activity levels among the Fitbit users compared to the national average, there’s a notable gap of approximately 2,500 steps in meeting the recommended daily step count of 10,000. Consider **incentivizing users to achieve the daily goal of 10,000 steps by offering challenges and rewards as motivation**.  |
-| Activity levels | A key finding was that 81% of the users’ total time is dedicated to sedentary activities, with an average of 16.5 hours daily. Sedentary behavior predominates in users’ daily activities, indicating a need to promote more active lifestyles. We recommend **implementing reminders to encourage movement after detecting prolonged sedentary activity and break the sedentary cycle**.  |
-| Hourly activity | Users exhibit highest activity levels between 5-8 PM. Offer challenges or events during these peak periods to engage users effectively. Given the prevalence of a 9-5 work pattern, we suggest **developing personalized activity plans tailored to users’ preferences and schedules**. Inform them of the importance of incorporating higher physical activity throughout the day. |
-| Weekday activity  | Activity levels peak from Tuesday to Thursday, while reduced activity can be observed from Friday to Monday. Therefore, **offer targeted incentives during the less active period of the week to promote physical activity**. |
-| Calories burned | Educate users about the correlation between daily step count and calories burned to empower them to make informed decisions about their activity levels and dietary choices. **Foster a supportive and motivating community environment where users can share their achievements and support to each other**. |
+| Sleep duration | Due to the sleep deficiency observed among users, indicated by the majority (54%) falling short of the recommended 7 hours, we recommend **integrating sleep features such as alarms, to assist users in planning their sleep schedules and improve sleep quality**. |
+| Step count | Despite a higher average step count among the Fitbit users compared to the national average, there’s a significant gap of approximately 2,500 steps in meeting the recommended daily step count of 10,000. We propose **incentivizing users to achieve the daily goal of 10,000 steps by offering challenges and rewards as motivation**.  |
+| Activity levels | A key finding was that 81% of the users’ total time is dedicated to sedentary activities, with an average of 16.5 hours daily. Sedentary behavior predominates in users’ daily activities, indicating a need to promote more active lifestyles. We suggest **implementing reminders to encourage movement after detecting prolonged sedentary activity and break the sedentary cycle**.  |
+| Hourly activity | Users exhibit highest activity levels between 5-8 PM. Given the prevalence of a 9-5 work pattern, we recommend **offering events during these peak periods to engage users effectively,** and **developing personalized activity plans tailored to users’ preferences and schedules.**
+| Weekday activity  | Activity levels peak from Tuesday to Thursday, while reduced activity can be observed from Friday to Monday. Therefore, we suggest **offering targeted incentives during the less active period of the week to promote physical activity**. |
+| Calories burned | Educate users about the correlation between daily step count and calories burned to empower them to make informed decisions about their activity levels and dietary choices. Our recommendation is to **foster a supportive and motivating community environment where users can share their achievements and support to each other**. |
 
 By implementing these insights and recommendations, Bellabeat can enhance its platform’s effectiveness in promoting active lifestyles and improving users’ overall health. I recommend Bellabeat to continuously gather and analyze its own company data and feedback from customers, to monitor changes over time and assess the impact of the implemented strategies on user behavior.
