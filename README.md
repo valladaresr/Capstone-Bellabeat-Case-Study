@@ -20,7 +20,7 @@ Questions to answer for stakeholders:
 [FitBit Fitness Tracker Data](https://www.kaggle.com/datasets/arashnic/fitbit) (CC0: Public Domain, dataset made available through Mobius): This Kaggle data set contains personal fitness tracker from thirty Fitbit users. Thirty eligible Fitbit users consented to the submission of personal tracker data, including minute-level output for physical activity, heart rate, and sleep monitoring. It includes information about daily activity, steps, and heart rate that can be used to explore users’ habits.
 
 ### Dataset Credibility and Observations
-I stored the data, identified organization and data format, and then sorted and filtered using Google Sheets. Limited dataset includes 18 CSV files. Each file contains distinct quantitative data from 33 users. It is important to note that this constitutes a relatively small sample, and no demographic information was provided, potentially introducing sampling bias. Therefore, the sample may not accurately represent a broader population. Aditionally, the dataset is not current, encompassing only 2 months of data.
+I stored the data, identified organization and data format, and then sorted and filtered using Google Sheets. Limited dataset includes 18 CSV files. Each file contains distinct quantitative data from 33 users. It is important to note that this constitutes a relatively small sample, and no demographic information was provided, potentially introducing sampling bias. Therefore, the sample may not accurately represent a broader population. Additionally, the dataset is not current, encompassing only 2 months of data.
 
 ## Process Phase
 I will be uploading the relevant CSV files into BigQuery and applying various data cleaning techniques using SQL. This will involve checking for missing data, ensuring correct data types and formats, identifying and removing duplicates, verifying column names, and ensuring consistency within date and time columns. All these cleaning methods could also be done using Google Sheets. I will continue searching for any potential data issues throughout the entire analysis.
@@ -126,7 +126,7 @@ I found **3** duplicates in daily_sleep and those will be removed from the query
 ![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/2cd25d40-20bc-4662-9366-ffb2d5e98be8)
 
 ### Removing duplicates
-Removed duplicated rows from daily_sleep, used WITH to create temporary table then used SUBSTR function to remove static timestamp 12:00:00 AM/PM from all dates; to be able to compare with daily_activity and daily_calories datasets
+Removed duplicated rows from daily_sleep, used WITH to create temporary table then used SUBSTR function to remove static timestamp 12:00:00 AM/PM from all dates; to be able to compare with daily_activity and daily_calories datasets.
 ```SQL
 WITH fixed_date_sleep AS (  
 SELECT      
@@ -246,7 +246,7 @@ ORDER BY
 ```
 ### Classifying Users
 
-I am interested in finding and classifying users based on their daily sleep time. According to [Harvard Medical School](https://www.health.harvard.edu/womens-health/women-and-sleep-one-simple-step-to-a-longer-healthier-life), average adults should get seven to nine hours of sleep every night for optimum health and function; however, 60% of women regularly fall short of that goal. They state that this could be caused do to insomnia or another underlying condition that may require medical attention. Therefore, I will classify users to see the distribution based on meeting or not meeting the recommended sleep duration of seven hours. The following SQL query will help me do that.
+I am interested in finding and classifying users based on their daily sleep time. According to [Harvard Medical School](https://www.health.harvard.edu/womens-health/women-and-sleep-one-simple-step-to-a-longer-healthier-life), average adults should get seven to nine hours of sleep every night for optimum health and function; however, 60% of women regularly fall short of that goal. They state that this could be caused by insomnia or another underlying condition that may require medical attention. Therefore, I will classify users to see the distribution based on meeting or not meeting the recommended sleep duration of seven hours. The following SQL query will help me do that.
 
 ```SQL
 -- Query to find if users meet recommended sleep time
@@ -391,7 +391,7 @@ ON
 
 
 ### Users' daily activity distribution
-The pie chart below depicts the distribution of users' daily activities based on their activity type durations. It reveals that 81% of users' time is dedicated to sedendary activities, indicating a lifestyle characterized by prolonged sitting and lying down, resulting in lower calorie expenditure. Additionally, the chart indicates that 16% of their time is spent lightly active, 1% fairly active, and 2% very active. Relating this data to the statistical summary presented above, the average daily sedentary time for users is 991 minutes, or 16.5 hours, while the average very active time is only 21 minutes. Also, the majority of the users spend their time doing light activities rather than very active. 
+The pie chart below depicts the distribution of users' daily activities based on their activity type durations. It reveals that 81% of users' time is dedicated to sedentary activities, indicating a lifestyle characterized by prolonged sitting and lying down, resulting in lower calorie expenditure. Additionally, the chart indicates that 16% of their time is spent lightly active, 1% fairly active, and 2% very active. Relating this data to the statistical summary presented above, the average daily sedentary time for users is 991 minutes, or 16.5 hours, while the average very active time is only 21 minutes. Also, the majority of the users spend their time doing light activities rather than very active. 
 
 <p align="center">
   <img src="https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/6be7e5ca-0427-4110-89c3-dccf2cbc2ed5"/>
