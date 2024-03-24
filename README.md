@@ -393,22 +393,30 @@ ON
 ### Users' daily activity distribution
 The pie chart below depicts the distribution of users' daily activities based on their activity type durations. It reveals that 81% of users' time is dedicated to sedendary activities, indicating a lifestyle characterized by prolonged sitting and lying down, resulting in lower calorie expenditure. Additionally, the chart indicates that 16% of their time is spent lightly active, 1% fairly active, and 2% very active. Relating this data to the statistical summary presented above, the average daily sedentary time for users is 991 minutes, or 16.5 hours, while the average very active time is only 21 minutes. Also, the majority of the users spend their time doing light activities rather than very active. 
 
-![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/6be7e5ca-0427-4110-89c3-dccf2cbc2ed5)
+<p align="center">
+  <img src="https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/6be7e5ca-0427-4110-89c3-dccf2cbc2ed5"/>
+</p>
 
 ### Hourly average steps
 The following chart illustrates a breakdown of the hourly average steps users take throughout the day. It shows that users are most active between 5-8 PM, followed by 12-3 PM. This indicates that users are more active around lunchtime and reach their peak activity after leaving work in the evening. I believe the highest activity spike is due to most people exercising in the evening rather than the morning.
 
-![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/4d4ef404-387f-43c8-92e3-8f2ce92ae24d)
+<p align="center">
+  <img src="https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/4d4ef404-387f-43c8-92e3-8f2ce92ae24d"/>
+</p>
 
 ### Total steps per weekday
 The next chart displays the total steps per weekday. It reveals that Tuesday sees the highest activity levels among users, followed by a gradual decline on Wednesday and Thursday. Additionally, Saturday shows as the most active weekend day, in contrast to Sunday, which ranks as the least active day of the week.
 
-![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/469cad4f-93ed-4e7e-a24d-3ae4e5443a42)
+<p align="center">
+  <img src="https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/469cad4f-93ed-4e7e-a24d-3ae4e5443a42"/>
+</p>
 
 ### Relationship between daily steps and total calories
 The next chart shows the relationship between daily steps and total calories burned. Following a regression analysis, a positive linear correlation with an R-squared value of .33 can be observed. This value suggests that the data points are moderately dispersed from the regression line as the R-squared value is closer to 0. The upward slope of the relationship indicates that as the daily steps increase, there is a consistent increase in calories burned.
 
-![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/7f74ee17-e5fc-4773-964d-4f4ad2f15895)
+<p align="center">
+  <img src="https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/7f74ee17-e5fc-4773-964d-4f4ad2f15895"/>
+</p>
 
 ## Act Phase
 Bellabeat is a company that empowers women with knowledge about their own health and habits, and helps them make healthy decisions. Analyzing trends and relationships in the Fitbit data offers valuable insights about the users’ sleep patterns and activity levels that can be applied to Bellabeat’s customers, given their shared interest in health and fitness among their customer base. 
