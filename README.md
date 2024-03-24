@@ -25,7 +25,7 @@ I stored the data, identified organization and data format, and then sorted and 
 ## Process Phase
 I will be uploading the relevant CSV files into BigQuery and applying various data cleaning techniques using SQL. This will involve checking for missing data, ensuring correct data types and formats, identifying and removing duplicates, verifying column names, and ensuring consistency within date and time columns. All these cleaning methods could also be done using Google Sheets. I will continue searching for any potential data issues throughout the entire analysis.
 
-There was an issue uploading hourly files and daily_sleep to BigQuery due to data type, as it only accepts UTC standard type and time format was local time. Therefore, uploaded the files and edited the schema to STRING type in order to create the table. **Fixed this issue later on by using the SUBSTR function and removing the necessary part of the string.**
+I encountered an issue uploading the hourly and daily_sleep files to BigQuery due to the data type. BigQuery only accepts data in UTC standard type, and the time format in the files was in local time. To resolve this, I uploaded the files and edited the schema to STRING type, allowing me to create the table. I fixed this issue later on by using the SUBSTR function to remove the unnecessary part of the string, ensuring compatibility with BigQuery's requirements.
 
 I will be importing the CSV files to BigQuery that contain the following tables:
 - daily_activity
@@ -103,7 +103,7 @@ FROM
 ```
 ![image](https://github.com/valladaresr/Google-Case-Study-Bellabeat/assets/163466485/89810b0b-8e14-4faf-8187-e86dfb8007cb)
 
-After a thorough inspection, **33** shared unique user ids were found for daily_activity, daily_calories, hourly_calories and hourly_steps. The dataset for daily_sleep has **24** user ids. Also, heart_rate has **7** user ids, and weight_log has **8** user ids; I won't be considering those datasets for my analysis due to having a very small sample. Despite the minimal sample size requirement being 30, and daily_sleep only having **24** user ids, I still intend to use the dataset for practice purposes as I am curious to see what the data will show. As the sample size decreases, the confidence interval becomes wider and less precise.
+After conducting a comprehensive review, I identified **33** unique user IDs shared across daily_activity, daily_calories, hourly_calories and hourly_steps. The dataset for daily_sleep has **24** user IDs, while heart_rate has **7** user IDs, and weight_log has **8** user IDs. Due to their very small sample sizes, I decided not to include heart_rate and weight_log datasets in my analysis. Despite daily_sleep falling short of the minimal sample size requirement of 30 user IDs, I have chosen to include it for practice purposes as I am curious to see what the data will show. It's worth noting that as the sample size decreases, the confidence interval widens, leading to less precise results.
 
 ### Checking for duplicates
 ```SQL
@@ -147,7 +147,7 @@ ORDER BY
   fixed_date_sleep.sleep_date
 ```
 ## Analyze & Share Phases
-Now that the data is clean and stored properly; I will organize, format and aggregate the data. I will also perform calculations in order to learn more about the data and identify relationships and trends. I will then export the results from my queries, import them into a spreadsheet to look for trends and relationships by using pivot tables and then import to Tableau public to create visualizations. 
+Now that the data is clean and stored properly; the next step involves organizing, formatting and aggregating the data. I will be performing calculations in order to gain insights about the data and identify any relationships and trends. Following this, I will export the results from my queries and import them into a spreadsheet for further analysis using pivot tables. Finally, I will import the data into Tableau Public to create visualizations that will facilitate a deeper understanding of the data and enable a clear presentation of the insights.
 
 ### Aggregating data
 ```SQL
