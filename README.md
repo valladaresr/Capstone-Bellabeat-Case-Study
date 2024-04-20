@@ -1,4 +1,4 @@
-# Google Case Study - Bellabeat 
+# Google Case Study with SQL - Bellabeat 
 
 ## About the Company
 Bellabeat, a high-tech company that manufactures health-focused smart products. The Bellabeat app collects and provides users with health data related to their activity, sleep, stress, menstrual cycle, and mindfulness habits. This data can help users better understand their current habits and make healthy decisions. Bellabeat empowers women with knowledge about their own health and habits. 
